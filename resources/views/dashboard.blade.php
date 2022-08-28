@@ -11,5 +11,6 @@
                 <x-jet-welcome />
             </div>
         </div>
+        <a href="payment">payment</a>
     </div>
 </x-app-layout>
