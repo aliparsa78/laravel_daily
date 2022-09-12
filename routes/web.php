@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SendEmailController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TestNotificationController;
+use App\Http\Controllers\RegisterNotificationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +33,12 @@ Route::middleware([
     // })->name('dashboard');
 });
 
-Route::get('/payment',[UserController::class,'mypayment']);
+Route::get('/test/{id}',[RegisterController::class,'test'])->name('/test');
+Route::view('register','Register.index');
+Route::Post('/register',[SendEmailController::class,'index']);
+
+Route::get('send-email', [SendEmailController::class, 'index']);
+
+// Route::get('/send-notification',[TestNotificationController::class,'sendNotification']);
+
+Route::get('/send-notify',[RegisterNotificationController::class,'notification']);
